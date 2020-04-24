@@ -7,6 +7,10 @@ import newsList from './components/news/newslist.vue'
 import newsInfo from './components/news/newsinfo.vue'
 import photoList from './components/photo/photolist.vue'
 import photoInfo from './components/photo/photoinfo.vue'
+import goodsList from './components/goods/goodslist.vue'
+import goodsInfo from './components/goods/goodsinfo.vue'
+import goodsDesc from './components/goods/goodsdesc.vue'
+import goodsComment from './components/goods/goodscomment.vue'
 
 import Mint from 'mint-ui'
 import axios from 'axios'
@@ -43,7 +47,11 @@ let router = new VueRouter({
 		{path: '/news/newslist',component: newsList},
 		{path: '/news/newsinfo/:id',component: newsInfo},
 		{path: '/photo/photolist',component: photoList},
-		{path: '/photolist/photoinfo/:id', component: photoInfo}
+		{path: '/photolist/photoinfo/:id', component: photoInfo},
+		{path: '/goods/goodslist', component: goodsList},
+		{path: '/goodslist/goodsinfo/:id', component: goodsInfo},
+		{path: '/goodsinfo/goodsdesc/:id', component: goodsDesc},
+		{path: '/goodsinfo/goodscomment/:id',component: goodsComment}
 	],
 	linkActiveClass: 'mui-active'
 })
@@ -53,8 +61,6 @@ new Vue({
 	render: c => c(app),
 	router,
 	methods: {
-		show() {
-			Toast('heihi')
-		}
+		
 	}
 })

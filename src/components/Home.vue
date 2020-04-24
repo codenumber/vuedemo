@@ -1,10 +1,6 @@
 <template>
 	<div id="templ">
-		<mt-swipe :auto="2000">
-		  <mt-swipe-item v-for="item of list" v-cloak >
-			  <img :src="item.img" alt="">
-		  </mt-swipe-item>
-		</mt-swipe>
+		<slider :imgList="list"></slider>
 		<div class="mui-content">
 				        <ul class="mui-table-view mui-grid-view mui-grid-9">
 				            <li  class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/news/newslist">
@@ -33,6 +29,7 @@
 
 <script>
 	import {Toast} from 'mint-ui'
+	import slider from './subcomponents/slider.vue'
 	
 	export default {
 		data() {
@@ -47,15 +44,17 @@
 			getBannerImg() {
 				this.$axios.get('api/getlunbo')
 					.then((res) => {
-						console.log(res)
 						if (res.status != 200) {
 							return Toast('异步请求错误')
 						}
 						
 						this.list = res.data.message
-						
+						console.log(this.list)
 					})
-			}
+			},
+		},
+		components: {
+			slider
 		}
 	}
 </script>

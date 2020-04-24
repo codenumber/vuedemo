@@ -10,11 +10,11 @@
 				<span class="mui-tab-label">首页</span>
 			</router-link>
 			<router-link class="mui-tab-item" to="/tabbar-with-chat">
-				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-icon mui-icon-email"></span>
 				<span class="mui-tab-label">会员</span>
 			</router-link>
 			<router-link class="mui-tab-item" to="/shopCar">
-				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-icon mui-icon-contact"><span class="mui-badge" id="badge">0</span></span>
 				<span class="mui-tab-label">购物车</span>
 			</router-link>
 			<router-link class="mui-tab-item" to="/tabbar-with-map">
@@ -28,6 +28,13 @@
 <script>
 	import {Toast} from 'mint-ui'
 	import axios from 'axios'
+	import {vm,COUNTSTR} from './kits/vm.js'
+	
+	vm.$on(COUNTSTR,(count) => {
+		let badgeObj = document.getElementById('badge')
+		badgeObj.innerText = parseInt(badgeObj.innerText) + count
+	})
+	
 	export default {
 		data() {
 			return {

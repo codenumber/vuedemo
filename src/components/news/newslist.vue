@@ -19,7 +19,6 @@
 <script>
 	import axios from 'axios'
 	import {Toast} from 'mint-ui'
-	import common from '../../kits/common.js'
 	
 	export default {
 		data() {
