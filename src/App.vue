@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<mt-header fixed title="商城"></mt-header>
+		<div v-show="isshow" id="back"><a href="javascript:;" @click="backTo">返回</a></div>
 		
 		<router-view></router-view>		
 		
@@ -38,21 +39,39 @@
 	export default {
 		data() {
 			return {
-				msg: "Hello World"
+				isshow: false
 			}
 		},
 		methods: {
 			show() {
 				Toast('heih')
+			},
+			backTo() {
+				this.$router.go(-1)
+			}
+		},
+		watch: {
+			$route(to,from) {   
+			    if(to.path == '/Home') {
+					this.isshow = false
+					return
+				}
+				this.isshow = true
 			}
 		}
 	
 	}
 </script>
 <style>
-	.say {
-		text-align: center;
-		color: red;
-		border: 1px solid red;
+	#back {
+		color: white;
+		position: fixed;
+		z-index: 200;
+		top: 9px;
+		left: 10px;
+	}
+	#back a {
+		color: white;
+		font-size: 14px;
 	}
 </style>

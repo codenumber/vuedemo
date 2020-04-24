@@ -7,6 +7,13 @@
 			<ul>
 				<li> 销售价：<span>{{goodsInfo.sell_price}}</span>市场价: <s>{{goodsInfo.market_price}}</s></li>
 				<li>购买数量:
+				<transition name="show" 
+				@before-enter="beforeEnter" 
+				@enter="enter"
+				@after-enter="afterEnter"
+				>
+					<div class="ball" v-show="isShow"></div>
+				</transition>
 					<inputNum v-on:objCount="getSelectCount"></inputNum>
 				</li>
 				<li>
@@ -50,10 +57,11 @@ import {setItem} from '../../kits/localSg.js'
 export default {
 	data() {
 		return {
+			isShow: false,
 			id: '',
 			imgList: [],
 			goodsInfo:'',
-			count: ""
+			count: 1
 		}
 	},
 	methods: {
@@ -83,9 +91,23 @@ export default {
 			this.count = objCount
 		},
 		toShopCar() {
+			
 			vm.$emit(COUNTSTR,this.count)
 			const value = {goodsId: this.id,goodsCount: this.count}
 			setItem(value)
+			
+			this.isShow = !this.isShow
+		},
+		beforeEnter(el) {
+			el.style.transform = 'translate(0,0)'
+		},
+		enter(el,done) {
+			el.offsetWidth
+			el.style.transform = "translate(104px,328px)"
+			done()
+		},
+		afterEnter(el) {
+			this.isShow = !this.isShow
 		}
 	},
 	created() {
@@ -137,12 +159,23 @@ export default {
 		height: 35px;
 		line-height: 35px;
 		display: block;
+		position: relative;
 	}
 	#choose .mint-button  {
 		margin: 8px 0px;
 	}
 	#inputNum {
 		display: inline-block;
-		
+	}
+	.ball {
+		width: 20px;
+		height: 20px;
+		background-color: red;
+		border-radius: 50%;
+		position: absolute;
+		bottom: 10px;
+		left: 110px;
+		transition: all .4s ease;
+		z-index: 100;
 	}
 </style>

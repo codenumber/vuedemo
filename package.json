@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --hot --open --port 5009"
+    "dev": "webpack-dev-server --inline --hot --open --port 5009",
+	"dist": "webpack -p"
   },
   "keywords": [],
   "author": "",
