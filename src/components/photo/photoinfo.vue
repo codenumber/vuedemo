@@ -7,7 +7,7 @@
 		<div class="content">
 			<div class="mui-content">
 				<ul class="mui-table-view mui-grid-view mui-grid-9">
-					 <li  class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" v-viewer v-for="item of list" :key="info.id">
+					 <li  class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3" v-viewer v-for="item of list" >
 						<img :src="item.src">
 					</li>
 				</ul> 
@@ -47,8 +47,7 @@
 				})
 			},
 			getThumbImage() {
-				this.$axios.get('api/getthumimages/' + this.id).then(res => {
-					console.log(res)
+				this.$axios.get('api/getthumimages/' + this.id).then(res => {					
 					if (res.status != 200) {
 						return Toast('获取主题照片失败')
 					}

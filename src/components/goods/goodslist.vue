@@ -36,9 +36,7 @@
 					if (res.status != 200) {
 						return Toast('获取商品数据失败')
 					}
-					console.log(res)
 					this.list = res.data.message
-					console.log(this.list)
 				})
 			}
 		}

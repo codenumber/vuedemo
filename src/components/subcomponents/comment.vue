@@ -63,7 +63,7 @@
 						return
 					}
 					this.comments = this.comments.concat(res.data.message)
-					console.log(this.comments)
+					console.logog(this.comments)
 				})
 				
 			},
@@ -74,7 +74,7 @@
 					if (res.status == 200) {
 						Toast(res.data.message)
 					}
-					console.log(res)
+					console.logog(res)
 					this.comments.unshift({
 						user_name: '匿名用户',
 						content: this.msg.trim(),

@@ -30,11 +30,9 @@
 			getNewsInfo() {
 				this.$axios.get("api/getnew/" + this.id )
 					.then( res => {
-						console.log(res)
 						if (res.data.status != 0) {
 							return Toast('获取失败')
 						}
-						console.log(res)
 						this.info = res.data.message[0]
 					})
 			}

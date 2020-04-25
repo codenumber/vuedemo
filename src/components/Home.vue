@@ -49,7 +49,6 @@
 						}
 						
 						this.list = res.data.message
-						console.log(this.list)
 					})
 			},
 		},
@@ -60,20 +59,6 @@
 </script>
 
 <style scoped>
-	[v-cloak] {
-		display: none;
-	}
-	.mint-swipe-item {
-		height: 300px;
-		width: 100%;
-	}
-	.mint-swipe {
-		height: 300px;
-	}
-	.mint-swipe img {
-		width: 100%;
-		height: 300px;
-	}
 	.mui-grid-view.mui-grid-9,.mui-grid-view.mui-grid-9 .mui-table-view-cell.mui-active {
 		background: white;
 	}

@@ -32,7 +32,6 @@
 		methods: {
 			getNews() {
 				this.$axios.get("api/getnewslist").then(res=> {
-					console.log(res)
 					if (res.status != 200) {
 						return Toast(res.data.message)
 					}

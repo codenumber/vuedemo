@@ -21,7 +21,6 @@
 				</div>
 			</ul>
 		</div>
-		{{value}}
 	</div>
 </template>
 

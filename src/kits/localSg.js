@@ -19,7 +19,6 @@ export function removeItem(id) {
 			arr.splice(i,1)
 		}
 	}
-	console.log(arr)
 	localStorage.setItem(Key,JSON.stringify(arr))
 }
 export function getGoodsObj() {
@@ -37,7 +36,6 @@ export function getGoodsObj() {
 }
 export function upDataLocalSg(obj) {
 	let arr = JSON.parse(getItem())
-	console.log(arr)
 	if (obj.type == "add") {
 		arr.push({goodsId: obj.goodsid,goodsCount: 1})
 	} else {
