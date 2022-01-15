@@ -33,7 +33,7 @@
     "html-webpack-plugin": "^4.2.0",
     "less": "^3.11.1",
     "markdown": "^0.5.0",
-    "marked": "^0.8.2",
+    "marked": "^4.0.10",
     "mint-ui": "^2.2.13",
     "moment": "^2.24.0",
     "qs": "^6.9.3",
